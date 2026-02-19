@@ -1,7 +1,10 @@
-![logo](lecture/static/logo.png)
+![logo](lecture/static/cerberus_life_support.png)
 
 
 ## "What's in this repository?"
+This will become a Tutorial on how to run Cerberus. Currently Cerberus is still under construction. It will be available soon.
+
+## Template from DiLER
 
 This is a minimalistic template repository for creating online courses in higher education created for the [DiLER](https://diler-digitell.github.io/examples.html) (Digital Literacy for Empirical Research) project, financed by [DigiTeLL](https://www.uni-frankfurt.de/106198465/Digital_Teaching_and_Learning_Lab___DigiTeLL) (Goethe-University Frankfurt).
 
