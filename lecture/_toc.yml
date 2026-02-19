@@ -1,0 +1,12 @@
+format: jb-book
+root: general_information/index
+chapters:
+- file: general_information/overview
+- file: general_information/setup
+- file: general_information/intro
+- file: content/intro_content
+  sections:
+  - file: content/static_content
+  - file: content/interactive_notebook
+- file: general_information/CoC
+- file: general_information/dei
