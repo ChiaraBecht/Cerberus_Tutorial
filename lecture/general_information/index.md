@@ -1,14 +1,14 @@
 
-![diler logo](../static/logo.png)
+![diler logo](../static/cerberus_life_support.png)
 
 
 # Welcome!
 
-Hello everyone and welcome to the course page for X
+Hello everyone and welcome to the course page for Cerberus
 
-## Course name
+## Cerberus Tutorial
 
-Within this course we will explore X
+Within this course we will explore how to run Cerberus in order to analyze combinatorial CRISPR Screens.
 
 You can use the following sections to navigate through the content of the lecture:
 
