@@ -4,11 +4,20 @@
 
 # Welcome!
 
-Hello everyone and welcome to the course page for Cerberus
+Hello and welcome to the course page for Cerberus
 
 ## Cerberus Tutorial
 
 Within this course we will explore how to run Cerberus in order to analyze combinatorial CRISPR Screens.
+
+Sections I need:  
+- aim of Cerberus (module overview)
+- automatic run vs. modular run
+- Install (docker container, package set up)
+- dataset preparation (style guide lines for Guide ids, gene ids, replicates)
+- creating the sample sheet
+- example run automatic run (cli, docker)
+- example run modular run
 
 You can use the following sections to navigate through the content of the lecture:
 
