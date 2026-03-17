@@ -1,12 +1,20 @@
 # Intro 
+Cerberus will allow you, to identify Genetic Interactions (GIs) from systematic combinatorial CRISPR screens. The input data for Cerberus is a read count table. If you do not have a read count table yet, but sequencing data from this screen you can use [ReCo!](https://github.com/MaWeffm/ReCo) to generate read count tables. Minimal columns in the dataset need to be a library read count (or early timepoint) and end point read count.
 
+## Dataset Designs
+- fixed pair screen
+- query screen
+- multiplex screen
 
-In the first block of this course we will focus on X
+## Defining GIs
+find unexpected phenotype given the single phenotypes or other baseline assumption.  
+Nullmodels that are implemented in Cerberus
+- multiplicative model
+- median polishing
+- loess fitting
 
 ## Objectives 📍
-- Learn about X
-    - What?
-    - How?
+- Learn how to run Cerberus to identify GIs
  
 - get the necessary software  
 - Ask and answer questions
@@ -14,18 +22,4 @@ In the first block of this course we will focus on X
 
 ## Prerequisities
 
-- list prerequisities
-- refer back to setup page
-
-## Materials 
-
-
-## Schedule
-
-Please see below for our current optimistic schedule. Depending on our progress, potential problems and different forms of learning, content and times might change a bit. Each lecture will be divided into several parts separated by a 5-10 minute break and might constitute a transition from basic to advanced concepts, theoretic to practical sessions and individual to group work. The different parts are roughly indicated in the schedule below like this:
-
-
-
-| Date (day/month/year) 🗓         | Topic   | Assignment / deadline |
-|--------------|-----------|------------|
-| 28/10/2022 | Introduction I - course information & setup  | /not applicable |
+- working with linux or OS command line
