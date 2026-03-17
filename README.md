@@ -1,4 +1,4 @@
-![logo](lecture/static/cerberus_life_support.png)
+![logo](lecture/static/cerberus_mock.png)
 
 
 ## "What's in this repository?"
