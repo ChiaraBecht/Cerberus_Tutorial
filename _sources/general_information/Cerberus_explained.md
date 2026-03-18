@@ -1,11 +1,4 @@
 # Cerberus workflow overview
-
-# Nullmodels Deep Dive
-
-# Supported Dataset Designs
-
-# Whick Nullmodel for which Dataset Design
-
 ## Cerberus Modules overview
 In a later chapter and also in the docs, all Modules and functions are described in more detail. This chapter is meant to provide an overview on the pipeline steps that will be needed in order to compute GIs, leaving out all the modules that are run internally in order to run the main pipeline steps. 
 
@@ -23,14 +16,18 @@ All modules are written in python except the Gene level GI scoring module, which
 
 *elaborate on decision making maybe*
 
-## Dataset Designs
-- fixed pair screen
-- query screen
-- multiplex screen
-
+# Nullmodels Deep Dive
 ## Defining GIs
 find unexpected phenotype given the single phenotypes or other baseline assumption.  
 Nullmodels that are implemented in Cerberus
 - multiplicative model
 - median polishing
 - loess fitting
+  
+# Supported Dataset Designs
+## Dataset Designs
+- fixed pair screen
+- query screen
+- multiplex screen
+
+# Whick Nullmodel for which Dataset Design
