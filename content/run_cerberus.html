@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>How to run Cerberus &#8212; Course Template for ressources in higher education</title>
+    <title>Modular example run &#8212; Course Template for ressources in higher education</title>
   
   
   
@@ -244,6 +244,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/M-earnest/course_template_diler/master?urlpath=tree/lecture/content/run_cerberus.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -269,7 +300,7 @@
       
       
       
-      <li><a href="https://github.com/M-earnest/course_template_diler/edit/master/lecture/content/run_cerberus.md" target="_blank"
+      <li><a href="https://github.com/M-earnest/course_template_diler/edit/master/lecture/content/run_cerberus.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +347,7 @@
       
       
       
-      <li><a href="../_sources/content/run_cerberus.md" target="_blank"
+      <li><a href="../_sources/content/run_cerberus.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +357,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -387,7 +418,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -398,11 +431,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>How to run Cerberus</h1>
+    <h1>Modular example run</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-multiplicative-model-module">User input data Submission for running the multiplicative model module</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -412,8 +453,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="how-to-run-cerberus">
-<h1>How to run Cerberus<a class="headerlink" href="#how-to-run-cerberus" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="modular-example-run">
+<h1>Modular example run<a class="headerlink" href="#modular-example-run" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cerberus.objects</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeneticInteractionSample</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="user-input-data-submission-for-running-the-multiplicative-model-module">
+<h2>User input data Submission for running the multiplicative model module<a class="headerlink" href="#user-input-data-submission-for-running-the-multiplicative-model-module" title="Permalink to this heading">#</a></h2>
+<p>In the modular run instead of a sample sheet, the input information will be provided directly to the GeneticInteractionSample class. All variables that are initialized when instantiating the class can or have to be overwritten. Mandatory parameter have to been set. Optional parameters for the multiplicative model are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gi_obj</span> <span class="o">=</span> <span class="n">GeneticInteractionSample</span><span class="p">(</span>
+    <span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;RPE1&#39;</span><span class="p">,</span>
+    <span class="n">reco_table_file</span><span class="o">=</span><span class="s1">&#39;../static/SpCas9_readcounts.csv&#39;</span><span class="p">,</span>
+    <span class="n">query_casette</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;guide_col&#39;</span><span class="p">:</span> <span class="s1">&#39;Guide1&#39;</span><span class="p">,</span> <span class="s1">&#39;gene_col&#39;</span><span class="p">:</span> <span class="s1">&#39;Gene1&#39;</span><span class="p">},</span>
+    <span class="n">other_casette</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;guide_col&#39;</span><span class="p">:</span> <span class="s1">&#39;Guide2&#39;</span><span class="p">,</span> <span class="s1">&#39;gene_col&#39;</span><span class="p">:</span> <span class="s1">&#39;Gene2&#39;</span><span class="p">},</span>
+    <span class="n">t0_tend_reco_mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Library read counts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Rep1&#39;</span><span class="p">,</span> <span class="s1">&#39;Rep2&#39;</span><span class="p">]},</span>
+    <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;Core essentialome&#39;</span><span class="p">,</span>
+    <span class="n">tend_reco_rep_pairs</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;Rep1&#39;</span><span class="p">,</span> <span class="s1">&#39;Rep2&#39;</span><span class="p">]],</span>
+    <span class="n">neutral_control_gene</span><span class="o">=</span><span class="s1">&#39;NHT&#39;</span><span class="p">,</span>
+    <span class="n">conditions</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">bio_reps</span><span class="o">=</span><span class="p">{},</span> 
+    <span class="n">tech_reps</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;t1&#39;</span><span class="p">:</span> <span class="s1">&#39;Rep1&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">:</span> <span class="s1">&#39;Rep2&#39;</span><span class="p">},</span>
+    <span class="n">guide_reps</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;g1&#39;</span><span class="p">:</span> <span class="s1">&#39;-KO-1&#39;</span><span class="p">,</span> <span class="s1">&#39;g2&#39;</span><span class="p">:</span> <span class="s1">&#39;-KO-2&#39;</span><span class="p">,</span> <span class="s1">&#39;g3&#39;</span><span class="p">:</span> <span class="s1">&#39;-KO-3&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">:</span> <span class="s1">&#39;-KO-4&#39;</span><span class="p">},</span>
+    <span class="n">orientation_reps</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">guide_combination</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;g1&#39;</span><span class="p">:</span> <span class="s1">&#39;g1_g1&#39;</span><span class="p">,</span> <span class="s1">&#39;g2&#39;</span><span class="p">:</span> <span class="s1">&#39;g1_g2&#39;</span><span class="p">,</span> <span class="s1">&#39;g3&#39;</span><span class="p">:</span> <span class="s1">&#39;g1_g3&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">:</span> <span class="s1">&#39;g1_g4&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">:</span> <span class="s1">&#39;g2_g1&#39;</span><span class="p">,</span> <span class="s1">&#39;g6&#39;</span><span class="p">:</span> <span class="s1">&#39;g2_g2&#39;</span><span class="p">,</span> <span class="s1">&#39;g7&#39;</span><span class="p">:</span> <span class="s1">&#39;g2_g3&#39;</span><span class="p">,</span> <span class="s1">&#39;g8&#39;</span><span class="p">:</span><span class="s1">&#39;g2_g4&#39;</span><span class="p">,</span> <span class="s1">&#39;g9&#39;</span><span class="p">:</span> <span class="s1">&#39;g3_g1&#39;</span><span class="p">,</span> <span class="s1">&#39;g10&#39;</span><span class="p">:</span> <span class="s1">&#39;g3_g2&#39;</span><span class="p">,</span> <span class="s1">&#39;g11&#39;</span><span class="p">:</span> <span class="s1">&#39;g3_g3&#39;</span><span class="p">,</span> <span class="s1">&#39;g12&#39;</span><span class="p">:</span> <span class="s1">&#39;g3_g4&#39;</span><span class="p">,</span> <span class="s1">&#39;g13&#39;</span><span class="p">:</span> <span class="s1">&#39;g4_g1&#39;</span><span class="p">,</span> <span class="s1">&#39;g14&#39;</span><span class="p">:</span> <span class="s1">&#39;g4_g2&#39;</span><span class="p">,</span> <span class="s1">&#39;g15&#39;</span><span class="p">:</span> <span class="s1">&#39;g4_g3&#39;</span><span class="p">,</span> <span class="s1">&#39;g16&#39;</span><span class="p">:</span> <span class="s1">&#39;g4_g4&#39;</span><span class="p">},</span>
+    <span class="n">merge_orientations</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">genes_to_remove</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">custom_ess</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">custom_noness</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">custom_enh_prolif</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;../static/example_run_output/multiplicative_model&#39;</span><span class="p">,</span>
+    <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;No Scaling&#39;</span><span class="p">,</span>
+    <span class="n">adjust_gis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">lower_quant</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">upper_quant</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">opt_exclusion</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">store_raw_gi_scores</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-03-18 15:21:18,975 - RPE1 - INFO - Logger initialized for RPE1
+2026-03-18 15:21:18,976 - RPE1 - INFO - Output folder already exists: ../static/example_run_output/multiplicative_model/RPE1 contents will be overwritten
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -425,16 +517,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "cerberus_tutorial"
         },
         kernelOptions: {
-            name: "python3",
+            name: "cerberus_tutorial",
             path: "./content"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'cerberus_tutorial'</script>
 
                 </article>
               
@@ -470,6 +562,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-multiplicative-model-module">User input data Submission for running the multiplicative model module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
