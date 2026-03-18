@@ -2,6 +2,7 @@ format: jb-book
 root: general_information/index
 chapters:
 - file: general_information/intro
+- file: general_information/Cerberus_explained
 - file: general_information/install
 - file: general_information/overview
 - file: general_information/setup
