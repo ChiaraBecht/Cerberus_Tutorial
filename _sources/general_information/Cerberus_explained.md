@@ -30,4 +30,4 @@ Nullmodels that are implemented in Cerberus
 - query screen
 - multiplex screen
 
-# Whick Nullmodel for which Dataset Design
+# Which Nullmodel for which Dataset Design
