@@ -413,7 +413,12 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cerberus workflow overview</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nullmodels-deep-dive">Nullmodels Deep Dive</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-dataset-designs">Supported Dataset Designs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whick-nullmodel-for-which-dataset-design">Whick Nullmodel for which Dataset Design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whick-nullmodel-for-which-dataset-design">Whick Nullmodel for which Dataset Design</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cerberus-modules-overview">Cerberus Modules overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-designs">Dataset Designs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-gis">Defining GIs</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -437,6 +442,43 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="whick-nullmodel-for-which-dataset-design">
 <h1>Whick Nullmodel for which Dataset Design<a class="headerlink" href="#whick-nullmodel-for-which-dataset-design" title="Permalink to this heading">#</a></h1>
+<section id="cerberus-modules-overview">
+<h2>Cerberus Modules overview<a class="headerlink" href="#cerberus-modules-overview" title="Permalink to this heading">#</a></h2>
+<p>In a later chapter and also in the docs, all Modules and functions are described in more detail. This chapter is meant to provide an overview on the pipeline steps that will be needed in order to compute GIs, leaving out all the modules that are run internally in order to run the main pipeline steps.</p>
+<ul class="simple">
+<li><p>GeneticInteractionSample module: process and store user input to provide to the other modules</p></li>
+<li><p>DataPreparation module: computing phenotypes from the read counts (LFCs)</p></li>
+<li><p>3 gRNA level GI scoring modules:</p>
+<ul>
+<li><p>multiplicative model (most simplistic way, adding up the single phenotypes of the genes and comparing this to the observed combinatorial phenotype)</p></li>
+<li><p>Median Polishing (fitting a linear model to the data, residuals are the GIs)</p></li>
+<li><p>LOESS fitting (choosing genes as context, and do local linear fitting through context to detect GIs)</p></li>
+</ul>
+</li>
+<li><p>Gene level GI scoring module: aggregate gRNA scores to gene level and estimate their significance</p></li>
+</ul>
+<p><em>replace this with a scheme</em></p>
+<p>All modules are written in python except the Gene level GI scoring module, which is based on limma, an R package. Each module can be executed via python scripting. The communication between python and R modules is managed internally.</p>
+<p><em>elaborate on decision making maybe</em></p>
+</section>
+<section id="dataset-designs">
+<h2>Dataset Designs<a class="headerlink" href="#dataset-designs" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>fixed pair screen</p></li>
+<li><p>query screen</p></li>
+<li><p>multiplex screen</p></li>
+</ul>
+</section>
+<section id="defining-gis">
+<h2>Defining GIs<a class="headerlink" href="#defining-gis" title="Permalink to this heading">#</a></h2>
+<p>find unexpected phenotype given the single phenotypes or other baseline assumption.<br />
+Nullmodels that are implemented in Cerberus</p>
+<ul class="simple">
+<li><p>multiplicative model</p></li>
+<li><p>median polishing</p></li>
+<li><p>loess fitting</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -506,7 +548,12 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cerberus workflow overview</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nullmodels-deep-dive">Nullmodels Deep Dive</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-dataset-designs">Supported Dataset Designs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whick-nullmodel-for-which-dataset-design">Whick Nullmodel for which Dataset Design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whick-nullmodel-for-which-dataset-design">Whick Nullmodel for which Dataset Design</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cerberus-modules-overview">Cerberus Modules overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-designs">Dataset Designs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-gis">Defining GIs</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
