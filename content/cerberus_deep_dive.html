@@ -391,7 +391,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -407,6 +409,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model">multiplicative model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model-without-adjusting">multiplicative model without adjusting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model-with-adjusting">multiplicative model with adjusting</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -418,6 +432,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cerberus-deep-dive">
 <h1>Cerberus deep dive<a class="headerlink" href="#cerberus-deep-dive" title="Permalink to this heading">#</a></h1>
+<section id="multiplicative-model">
+<h2>multiplicative model<a class="headerlink" href="#multiplicative-model" title="Permalink to this heading">#</a></h2>
+<p>The input data is LFCs. The multiplicative model strongly assumes linearity, therefore, controls that behave more positive or negative than expected can be problematic. Cerberus offers to scale LFCs to match this assumption.  You can not scale, scale the nonessential gene median to be 0, or adjust also the essential genes in addition to have an median of -1.</p>
+<section id="multiplicative-model-without-adjusting">
+<h3>multiplicative model without adjusting<a class="headerlink" href="#multiplicative-model-without-adjusting" title="Permalink to this heading">#</a></h3>
+<p>raw scores are computed by applying strictly the multiplicative model, which assumes strict additive effects. Add single phenotypes (on log scale, therefore addition equals multiplication). Then subtract observed combinatorial lfc with expected phenotye (sum of single phenotypes). The bigger the score the more likely to be a GI, because observation is not strictly additive. We apply on this simplistic method one correction: excluding so called loss of linearity instances. Loss of linearity means, that our expected phenotype is more negative, than the resolution we have in the experiment. Therefore, we cannot be sure that the observed phenotype is the correct phenotype. Those instances get flagged and removed. We consider loss of linearity instances cases, where considering full drop out given the early time point is less strong than the expected phenotype. For these cases we have not enough resolution and therefore we exclude them. All of those would show up as strong GIs.</p>
+</section>
+<section id="multiplicative-model-with-adjusting">
+<h3>multiplicative model with adjusting<a class="headerlink" href="#multiplicative-model-with-adjusting" title="Permalink to this heading">#</a></h3>
+<p>The raw scores that we produced can be further adjusted, by considering non-linear trends and standard deviation. To visualize that, we can plot expected vs observed phenotypes as a scatterplot and make the dotsize the raw gi score. Doing so will show that the model we assume is x = y. This can be quite different from the datas true shape. There should be correlation between x and y, therefore we first MA transform, to rotate the data by 45°. This will move the data cloud to be parallel to the x axis, ensuring more similar data distribution over x. We then loess fit through the data and recompute our GI scores comparing the new MA transformed expected (from loess) to MA transformed observed. Next, we want also to consider standard deviation differences over y, given similar spaced bins over x. For each x axis bin we omit the lower and upper nth percentile to not consider true GIs in the standard deviation. We then adjust the GI score based on the standard deviation. This is then the final adjusted GI score.</p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -476,6 +502,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model">multiplicative model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model-without-adjusting">multiplicative model without adjusting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-model-with-adjusting">multiplicative model with adjusting</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
