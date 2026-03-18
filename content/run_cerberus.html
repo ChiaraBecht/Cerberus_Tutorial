@@ -445,6 +445,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-cerberus-base-parameters">User input data Submission for running Cerberus base parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-multiplicative-model-module">User input data Submission for running the multiplicative model module</a></li>
 </ul>
             </nav>
@@ -466,9 +467,117 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="user-input-data-submission-for-running-cerberus-base-parameters">
+<h2>User input data Submission for running Cerberus base parameters<a class="headerlink" href="#user-input-data-submission-for-running-cerberus-base-parameters" title="Permalink to this heading">#</a></h2>
+<p>In the modular run instead of a sample sheet, the input information will be provided directly to the GeneticInteractionSample class. All variables that are initialized when instantiating the class can or have to be overwritten. Mandatory parameter have to been set. Overview on the mandatory base paramters:</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cell_line</p></td>
+<td><p>name of the cell line, if RPE1 use ‘RPE1’</p></td>
+</tr>
+<tr class="row-odd"><td><p>reco_table_file</p></td>
+<td><p>(absolute or relative) path to read count table</p></td>
+</tr>
+<tr class="row-even"><td><p>query_casette</p></td>
+<td><p>guide column and gene column of the query casette</p></td>
+</tr>
+<tr class="row-odd"><td><p>other_casette</p></td>
+<td><p>guide column and gene column of the non-query casette</p></td>
+</tr>
+<tr class="row-even"><td><p>t0_tend_reco_mapping</p></td>
+<td><p>{library/early timepoint 1: [end timepoint 1, endtime point 2], library/early timepoint 2: […]}  most experiments have exactly one start point</p></td>
+</tr>
+<tr class="row-odd"><td><p>dataset_name</p></td>
+<td><p>human readable name for your dataset, can contain spaces</p></td>
+</tr>
+<tr class="row-even"><td><p>tend_reco_rep_pairs</p></td>
+<td><p>pairwise list of lists of your end timepoints: e.g for 3 reps: [[rep1, rep2], [rep1, rep3], [rep2, rep3]]</p></td>
+</tr>
+<tr class="row-odd"><td><p>neutral_control_gene</p></td>
+<td><p>non targeting or save harbor targeting control gene name</p></td>
+</tr>
+<tr class="row-even"><td><p>conditions</p></td>
+<td><p>at the moment placeholder set empty dictionray: {}</p></td>
+</tr>
+<tr class="row-odd"><td><p>bio_reps</p></td>
+<td><p>if any {bio1: pre/suffix 1, bio2: pre/suffix 2, …} else: {}</p></td>
+</tr>
+<tr class="row-even"><td><p>tech_reps</p></td>
+<td><p>dictionary similar to bio_reps but with tech rep pre/suffix</p></td>
+</tr>
+<tr class="row-odd"><td><p>guide_reps</p></td>
+<td><p>dictionary that shows guide id suffix, more details in chapter on gRNA id style guide</p></td>
+</tr>
+<tr class="row-even"><td><p>orientation_reps</p></td>
+<td><p>True/False, set True if you have screened each pair in both directions and want to use it as replicate</p></td>
+</tr>
+<tr class="row-odd"><td><p>guide_combination</p></td>
+<td><p>dictionary of allowed guide combinations, will show below for a 4 guide library how to set up</p></td>
+</tr>
+<tr class="row-even"><td><p>output_folder</p></td>
+<td><p>full path to the folder name to which results shall be written, output folder does not need to pre-exist</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Overview on the optional base parameters:</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>default value</p></th>
+<th class="head"><p>when and how to overwrite</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>merge_orientations</p></td>
+<td><p>False</p></td>
+<td><p>set to True if gRNA pairs were screened in both orientations (symmetric set up) and you assume high orientation agreement</p></td>
+</tr>
+<tr class="row-odd"><td><p>genes_to_remove</p></td>
+<td><p>[]</p></td>
+<td><p>fill the list with gene names that shall be excluded from the analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_ess</p></td>
+<td><p>[]</p></td>
+<td><p>fill if you have an own list of essential genes for your screen and you dont want to use builtin list like Hart essentials or depmap essentials</p></td>
+</tr>
+<tr class="row-odd"><td><p>custom_noness</p></td>
+<td><p>[]</p></td>
+<td><p>fill if you have an own list of nonessential genes for your screen and you dont want to use builtin lists</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_enh_prolif</p></td>
+<td><p>[]</p></td>
+<td><p>fill if you have an own list of proliferation enhancing genes for your screen, if you not use RPE1 there will be no builtin set, and this set will be omitted from QC</p></td>
+</tr>
+<tr class="row-odd"><td><p>low_reco_cut_off</p></td>
+<td><p>10</p></td>
+<td><p>recommendation is to use the second percentile, if this is lower than 10 you will be asked to increase. Recommended is at least a read count of 20 as low read count cut-off</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="user-input-data-submission-for-running-the-multiplicative-model-module">
 <h2>User input data Submission for running the multiplicative model module<a class="headerlink" href="#user-input-data-submission-for-running-the-multiplicative-model-module" title="Permalink to this heading">#</a></h2>
 <p>In the modular run instead of a sample sheet, the input information will be provided directly to the GeneticInteractionSample class. All variables that are initialized when instantiating the class can or have to be overwritten. Mandatory parameter have to been set. Optional parameters for the multiplicative model are:</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gi_obj</span> <span class="o">=</span> <span class="n">GeneticInteractionSample</span><span class="p">(</span>
@@ -576,6 +685,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-cerberus-base-parameters">User input data Submission for running Cerberus base parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-multiplicative-model-module">User input data Submission for running the multiplicative model module</a></li>
 </ul>
   </nav></div>
