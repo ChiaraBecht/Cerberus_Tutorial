@@ -1,4 +1,4 @@
-# Cerberus workflow overview
+# Cerberus explained
 ## Cerberus Modules overview
 In a later chapter and also in the docs, all Modules and functions are described in more detail. This chapter is meant to provide an overview on the pipeline steps that will be needed in order to compute GIs, leaving out all the modules that are run internally in order to run the main pipeline steps. 
 
