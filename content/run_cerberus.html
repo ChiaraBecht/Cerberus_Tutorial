@@ -191,6 +191,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="cerberus_deep_dive.html">Cerberus deep dive</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Modular example run</a></li>
 
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../general_information/install.html">Install</a></li>
@@ -452,6 +453,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-median-polishing-module">User input data Submission for running the median polishing module</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submisison-for-running-the-loess-fitting-module">User input data Submisison for running the LOESS fitting module</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-to-run-gene-level-aggregation-and-statistics">User Input to run gene level aggregation and statistics</a></li>
 </ul>
 
@@ -700,6 +702,49 @@ document.write(`
 </div>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="user-input-data-submisison-for-running-the-loess-fitting-module">
+<h1>User input data Submisison for running the LOESS fitting module<a class="headerlink" href="#user-input-data-submisison-for-running-the-loess-fitting-module" title="Permalink to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>loess_sampling</p></td>
+<td><p>default: False, only set to True if your gene set is almost genome wide (e.g. screening query genes versus whole library, anchor screens etc.). Before loess fitting, points will be sampled, and only for those the fit will be done, the other points will lateron get extrapolated</p></td>
+</tr>
+<tr class="row-odd"><td><p>n_sample</p></td>
+<td><p>default: 10, how many points are sampled per bin</p></td>
+</tr>
+<tr class="row-even"><td><p>n_bins</p></td>
+<td><p>default: 8, how many bins over x axis will be generated</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_points</p></td>
+<td><p>default: 15, how many points need to remain in a bin to be considered an own bin</p></td>
+</tr>
+<tr class="row-even"><td><p>frac</p></td>
+<td><p>default: 0.666, how many points are considered the neighborhood for the local fit. Only reduce it if you have good reason for that</p></td>
+</tr>
+<tr class="row-odd"><td><p>degree</p></td>
+<td><p>default: 1, local linear fits. Some papers mention also quadratic fit. Linear should be mostly fine, the local fitting allows capturing non-linear trends</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_fit</p></td>
+<td><p>default: False, write the LOESS fit plot for each query guide to file. Keep in mind that this becomes a lot fast, e.g. 200 genes by 4 guides: you get 800 plots</p></td>
+</tr>
+<tr class="row-odd"><td><p>force_ma_transform</p></td>
+<td><p>default: False, it may help to distribute points better over x. You can tell when setting plot_fit to True what the impact of forcing MA transformation is.</p></td>
+</tr>
+<tr class="row-even"><td><p>loess_n_components</p></td>
+<td><p>default 0, you can increase this to 1 or more. Check QC plots first</p></td>
+</tr>
+<tr class="row-odd"><td><p>loess_corr_threshold</p></td>
+<td><p>default: 0.2, you can increase or decrease based on the QC plots</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="user-input-to-run-gene-level-aggregation-and-statistics">
 <h1>User Input to run gene level aggregation and statistics<a class="headerlink" href="#user-input-to-run-gene-level-aggregation-and-statistics" title="Permalink to this heading">#</a></h1>
 <p>The following parameters are required to execute limma. For most of them it is adviced to keep them set to their default values</p>
@@ -810,6 +855,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submission-for-running-the-median-polishing-module">User input data Submission for running the median polishing module</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-data-submisison-for-running-the-loess-fitting-module">User input data Submisison for running the LOESS fitting module</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-to-run-gene-level-aggregation-and-statistics">User Input to run gene level aggregation and statistics</a></li>
 </ul>
 
